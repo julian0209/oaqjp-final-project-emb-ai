@@ -71,4 +71,4 @@ python -m unittest test_emotion_detection.py
 
 **Julián Alberto Díaz Pinto**  
 Cloud & DevOps Engineer | AWS • Azure • Linux • Docker • CI/CD  
-[LinkedIn](https://linkedin.com) • [GitHub](https://github.com)
+[LinkedIn](www.linkedin.com/in/julian-diaz-ab9570237) • [GitHub](https://github.com)
