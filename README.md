@@ -1,5 +1,7 @@
 # 🧠 Emotion Detector API - Microservicio de IA Contenerizado
 
+![CI Pipeline](https://github.com)
+
 API REST desarrollada en **Python y Flask** que integra modelos de Procesamiento de Lenguaje Natural (NLP) / Inteligencia Artificial para analizar texto y detectar emociones en tiempo real. 
 
 Este proyecto fue estructurado y contenerizado bajo buenas prácticas de **DevOps**, permitiendo su despliegue portátil y aislado mediante **Docker**.
