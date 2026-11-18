@@ -1,0 +1,36 @@
+name: CI - Python Lint & Docker Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-validate:
+    name: Validar Código y Construir Imagen Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Descargar el código del repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Configurar entorno de Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: 3. Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: 4. Verificar sintaxis crítica de Python (Flake8/PyLint)
+        run: |
+          pip install flake8
+          # Detiene el pipeline solo si hay errores graves de sintaxis o variables indefinidas
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: 5. Probar construcción de la imagen Docker
+        run: |
+          docker build -t emotion-detector-api:test .
